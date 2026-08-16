@@ -141,6 +141,12 @@ async function main() {
 }
 
 main().catch((err) => {
+  // A raw stack trace here would be the first thing a new contributor
+  // sees when their key is wrong. Map the known cases to something
+  // actionable and keep the stack for genuine surprises.
+  if (err instanceof YouCamError) {
+    fail(`${err.message}\n    (code: ${err.code}${err.httpStatus ? `, HTTP ${err.httpStatus}` : ""})`);
+  }
   console.error(err);
   process.exit(1);
 });
