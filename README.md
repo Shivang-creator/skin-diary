@@ -12,6 +12,33 @@ The value is in the **series and the correlation**, not in any single call. The
 API is called repeatedly, over weeks, and the product is the analysis of what
 comes back.
 
+**Live:** https://skin-diary-steel.vercel.app — no account, no setup. It opens
+on a pre-populated six-week demo diary so the payoff screen is explorable
+immediately.
+
+---
+
+## ⚠️ One step needs a human: the live API key
+
+Everything in this repo runs today **without** a YouCam key, on fixture mode.
+To switch it to live calls:
+
+```bash
+cp .env.example .env.local
+# paste your key from https://yce.perfectcorp.com/api-console/en/api-keys/
+npm run check:units                                   # free — confirms the key + balance
+npm run capture:fixture -- ./selfie.jpg               # ONE real call, 12 units
+```
+
+`capture:fixture` prints the balance before and after, so the true per-call cost
+is **observed rather than assumed**, and freezes the genuine response into
+`src/lib/youcam/fixtures/skin-analysis-response.json`. Until that is run, the
+bundled fixture is built from YouCam's published response schema — and the app
+says so, on `/method`, rather than implying otherwise.
+
+For the deployed site, add `YOUCAM_API_KEY` in the Vercel project's
+Environment Variables and redeploy.
+
 ---
 
 ## The honesty rule

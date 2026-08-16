@@ -9,6 +9,10 @@ import {
   UNITS_PER_CAPTURE,
   UNIT_COST_TIERS,
 } from "@/lib/domain";
+import {
+  FIXTURE_IS_REAL_CAPTURE,
+  FIXTURE_PROVENANCE,
+} from "@/lib/youcam/fixture";
 
 export const metadata: Metadata = {
   title: "Method & limits — Skin Diary",
@@ -268,6 +272,32 @@ export default function MethodPage() {
               <span className="reading">SIMULATED</span> everywhere they appear
               and spend nothing. It is the reason this app could be built
               without exhausting its budget.
+            </p>
+            {/*
+              Stating the fixture's true provenance rather than implying it is
+              a captured response. If the shipped file is still the schema
+              sample, saying so is the only honest option.
+            */}
+            <p className="mt-2 border-t pt-2 text-[12px] leading-relaxed text-[var(--ink-3)]">
+              {FIXTURE_IS_REAL_CAPTURE ? (
+                <>
+                  The bundled fixture is a genuine captured response, recorded{" "}
+                  {FIXTURE_PROVENANCE.capturedAt?.slice(0, 10)} at a cost of{" "}
+                  <span className="reading">
+                    {FIXTURE_PROVENANCE.unitsConsumed}
+                  </span>{" "}
+                  units.
+                </>
+              ) : (
+                <>
+                  The bundled fixture is currently built from YouCam&rsquo;s
+                  published response schema, not from a captured live call.
+                  Running{" "}
+                  <code className="reading">npm run capture:fixture</code> with
+                  a key replaces it with a genuine response and records what it
+                  cost.
+                </>
+              )}
             </p>
           </div>
 
