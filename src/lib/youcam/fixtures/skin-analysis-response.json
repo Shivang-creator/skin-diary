@@ -1,0 +1,96 @@
+{
+  "_provenance": {
+    "capturedFrom": "documented-schema",
+    "note": "Shape-accurate sample of the GET /s2s/v2.0/task/skin-analysis/{task_id} response body with format=json, built from the published OpenAPI schema and the score_info.json sample in the AI Skin Analysis reference. Replace this file with a genuine captured response by running `npm run capture:fixture` with YOUCAM_API_KEY set — the script overwrites this file in place and rewrites this provenance block.",
+    "endpoint": "GET /s2s/v2.0/task/skin-analysis/{task_id}",
+    "dstActions": [
+      "acne",
+      "redness",
+      "oiliness",
+      "moisture",
+      "radiance",
+      "texture",
+      "dark_circle_v2"
+    ],
+    "unitsConsumed": 12,
+    "capturedAt": null
+  },
+  "status": 200,
+  "data": {
+    "task_status": "success",
+    "results": {
+      "output": [
+        {
+          "type": "acne",
+          "raw_score": 78.41,
+          "ui_score": 82,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/acne_output.png"
+          ]
+        },
+        {
+          "type": "redness",
+          "raw_score": 66.92,
+          "ui_score": 74,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/redness_output.png"
+          ]
+        },
+        {
+          "type": "oiliness",
+          "raw_score": 61.35,
+          "ui_score": 72,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/oiliness_output.png"
+          ]
+        },
+        {
+          "type": "moisture",
+          "raw_score": 54.88,
+          "ui_score": 70,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/moisture_output.png"
+          ]
+        },
+        {
+          "type": "radiance",
+          "raw_score": 72.14,
+          "ui_score": 78,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/radiance_output.png"
+          ]
+        },
+        {
+          "type": "texture",
+          "raw_score": 69.73,
+          "ui_score": 76,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/texture_output.png"
+          ]
+        },
+        {
+          "type": "dark_circle_v2",
+          "raw_score": 63.07,
+          "ui_score": 73,
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/dark_circle_v2_output.png"
+          ]
+        },
+        {
+          "type": "all",
+          "score": 66.64
+        },
+        {
+          "type": "skin_age",
+          "score": 29
+        },
+        {
+          "type": "resize_image",
+          "mask_urls": [
+            "https://yce-us.s3-accelerate.amazonaws.com/results/resized_image.jpg"
+          ]
+        }
+      ]
+    }
+  }
+}
