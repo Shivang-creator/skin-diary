@@ -9,8 +9,8 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "capture:fixture": "tsx scripts/capture-fixture.mts",
-    "check:units": "tsx scripts/check-units.mts"
+    "capture:fixture": "tsx --env-file=.env.local scripts/capture-fixture.mts",
+    "check:units": "tsx --env-file=.env.local scripts/check-units.mts"
   },
   "dependencies": {
     "next": "16.3.1",

@@ -77,14 +77,32 @@ export interface TaskStatusResponse {
   };
 }
 
+/**
+ * The live v1.0 credit endpoint returns a top-level `results` array — one
+ * entry per credit bucket — not the `result.credits` shape the written docs
+ * imply. Both are accepted here: `results` is what the server actually
+ * sends, `result.credits` is kept as a fallback so a future docs-shaped
+ * response doesn't silently report a zero balance.
+ *
+ * Getting this wrong is quiet and expensive: a mis-read balance reads as
+ * "0 units, you have nothing" when 1,500 are sitting there.
+ */
 export interface CreditResponse {
   status: number;
+  results?: Array<{
+    id: number;
+    type: string;
+    amount?: number;
+    amount_dec?: number;
+    expiry?: number;
+  }>;
   result?: {
     credits?: Array<{
       id: number;
       type: string;
-      amount_dec: number;
-      expiry: number;
+      amount?: number;
+      amount_dec?: number;
+      expiry?: number;
     }>;
   };
 }
@@ -467,11 +485,11 @@ export async function getUnitBalance(apiKey: string): Promise<{
     apiKey,
     "/s2s/v1.0/client/credit",
   );
-  const credits = res.result?.credits ?? [];
+  const credits = res.results ?? res.result?.credits ?? [];
   return {
-    total: credits.reduce((s, c) => s + (c.amount_dec ?? 0), 0),
+    total: credits.reduce((s, c) => s + (c.amount_dec ?? c.amount ?? 0), 0),
     buckets: credits.map((c) => ({
-      amount: c.amount_dec ?? 0,
+      amount: c.amount_dec ?? c.amount ?? 0,
       expiry: c.expiry ?? null,
     })),
   };
