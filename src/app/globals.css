@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/*
+ * Skin Diary — visual system.
+ *
+ * Direction: a measurement instrument's readout, not a beauty app. The
+ * audience is someone sceptical who has been sold to a lot, so the page
+ * has to read as credible rather than aspirational.
+ *
+ * The governing rule: COLOUR MEANS A MEASUREMENT CHANNEL. All interface
+ * chrome is achromatic — ink, paper and rules. The only saturated colour
+ * on any screen identifies a skin metric or a status. Nothing is coloured
+ * to be pretty.
+ *
+ * The series palette below is the validated categorical set (adjacent-pair
+ * CVD ΔE >= 8, normal-vision ΔE >= 15, in both light and dark), with dark
+ * steps chosen for the dark surface rather than flipped.
+ */
+
+@theme {
+  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Ground & ink */
+  --paper: #eef1f4;
+  --surface: #ffffff;
+  --surface-2: #f6f8fa;
+  --surface-3: #eaeef2;
+  --ink: #0f1518;
+  --ink-2: #48545c;
+  --ink-3: #78848b;
+  --rule: #dce3e8;
+  --rule-strong: #c2ccd4;
+
+  /* Measurement channels — one per tracked concern */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-4: #eda100;
+  --series-5: #e87ba4;
+  --series-6: #008300;
+  --series-7: #4a3aa7;
+
+  /* Status — reserved, never used for a series */
+  --good: #0ca30c;
+  --good-ink: #056605;
+  --warning: #fab219;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+
+  --focus: #2a78d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --paper: #0b0f12;
+    --surface: #141a1e;
+    --surface-2: #1a2127;
+    --surface-3: #212a31;
+    --ink: #eef2f4;
+    --ink-2: #a7b3ba;
+    --ink-3: #78848b;
+    --rule: #232c33;
+    --rule-strong: #35424b;
+
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --series-4: #c98500;
+    --series-5: #d55181;
+    --series-6: #21a521;
+    --series-7: #9085e9;
+
+    --good: #0ca30c;
+    --good-ink: #3ec73e;
+    --warning: #fab219;
+    --serious: #ec835a;
+    --critical: #e05a5a;
+
+    --focus: #5598e7;
+  }
+}
+
+* {
+  border-color: var(--rule);
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  /*
+   * Deliberately transparent. `html`'s background is what propagates to
+   * the viewport canvas; if `body` painted its own as well, it would
+   * cover the fixed negative-z-index ruled-paper layer behind the app.
+   */
+  background: transparent;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/*
+ * The signature: the page is one sheet of chart paper.
+ *
+ * A 24px baseline grid sits behind everything, and every chart's own
+ * gridlines are drawn on the same 24px rhythm, so plots read as if they
+ * were ruled onto the page rather than pasted on top of it.
+ */
+.chart-paper {
+  background-image:
+    linear-gradient(to right, var(--rule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule) 1px, transparent 1px),
+    /* Every fifth line is heavier, the way real chart paper is ruled. */
+    linear-gradient(to right, var(--rule-strong) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule-strong) 1px, transparent 1px);
+  background-size:
+    24px 24px,
+    24px 24px,
+    120px 120px,
+    120px 120px;
+  background-position: -1px -1px;
+  opacity: 0.55;
+}
+
+/* Numbers are readings. They wear the mono face and align in columns. */
+.reading {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* Focus is always visible and never colour-only. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Range inputs, restyled to look like instrument sliders. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--rule-strong);
+}
+input[type="range"]::-moz-range-track {
+  height: 2px;
+  background: var(--rule-strong);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 8px;
+  margin-top: -8px;
+  background: var(--ink);
+  border-radius: 1px;
+}
+input[type="range"]::-moz-range-thumb {
+  height: 18px;
+  width: 8px;
+  border: none;
+  border-radius: 1px;
+  background: var(--ink);
+}
+
+/* Tables of readings */
+.rule-top {
+  border-top: 1px solid var(--rule);
+}
