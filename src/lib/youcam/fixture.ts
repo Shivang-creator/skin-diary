@@ -1,5 +1,5 @@
 /**
- * Fixture mode — how Skin Diary was built without burning API units.
+ * Fixture mode — how Slept On was built without burning API units.
  *
  * The hackathon budget is 1,500 YouCam units and one skin analysis costs
  * 12 of them (SD, 7 concerns). That is ~125 analyses TOTAL — enough to

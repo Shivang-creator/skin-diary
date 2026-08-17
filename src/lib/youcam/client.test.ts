@@ -48,7 +48,7 @@ describe("parseSkinAnalysis", () => {
     expect(parsed.scores.acne).toBe(70);
   });
 
-  it("ignores concerns Skin Diary does not track", () => {
+  it("ignores concerns Slept On does not track", () => {
     const parsed = parseSkinAnalysis([
       { type: "wrinkle", raw_score: 50 },
       { type: "firmness", raw_score: 55 },
@@ -166,7 +166,7 @@ describe("unit pricing", () => {
     expect(unitCostFor(8)).toBeNaN();
   });
 
-  it("prices a Skin Diary capture at the top of the second tier", () => {
+  it("prices a Slept On capture at the top of the second tier", () => {
     expect(CONCERNS.length).toBe(7);
     expect(UNITS_PER_CAPTURE).toBe(12);
   });

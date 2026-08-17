@@ -1,15 +1,18 @@
-# Skin Diary
+<h1>Slept On</h1>
 
 **Your skin isn't reacting to your serum. It's reacting to your sleep.**
 
-Skin Diary is a longitudinal skin journal built on the Perfect Corp **YouCam AI
+*"You slept on it" — the thing that was doing the work while you were
+crediting something else.*
+
+Slept On is a longitudinal skin journal built on the Perfect Corp **YouCam AI
 Skin Analysis API**. You photograph your face on a schedule and log the boring
 variables next to it — sleep, water, stress, alcohol, a product change. After a
 couple of weeks it reports which of those factors actually track with your skin
 metrics over time.
 
 Most skin tools ask *"is this product working?"* — a question about one variable.
-Skin Diary asks the one people actually want answered: **what in my life is
+Slept On asks the one people actually want answered: **what in my life is
 showing up on my face?**
 
 ## The number nobody else prints
@@ -18,9 +21,8 @@ Searching 7 factors × 7 metrics × 3 time lags is **147 hypotheses**. At p<0.05
 about **7 of them look "significant" from pure noise alone**.
 
 So every p-value here is **Benjamini–Hochberg corrected** across the family of
-tests actually run — and the family size is shown to you on screen. A tool that
-runs 147 tests and reports the winners without saying how many it ran is not
-finding patterns, it is manufacturing them.
+tests actually run — and the family size is shown to you on screen. A tool that runs 147 tests and shows you the winners without
+saying how many it ran is not finding patterns. It is manufacturing them.
 
 That correction is the product. Everything else is a diary.
 
@@ -89,7 +91,7 @@ budget of **1,500 units**.
 | AI Skin Analysis, SD, 1–4 concerns | **9 units** / result |
 | AI Skin Analysis, SD, 5–7 concerns | **12 units** / result |
 
-Skin Diary requests **7 SD concerns → 12 units per capture**, which is the top
+Slept On requests **7 SD concerns → 12 units per capture**, which is the top
 of the second tier: the most information per unit spent. That makes the budget
 **1,500 ÷ 12 = 125 captures**.
 
@@ -110,7 +112,7 @@ npm run check:units      # balance + live price list. Spends nothing.
 
 ## The API integration
 
-Skin Diary uses four YouCam endpoints. The analysis pipeline is asynchronous —
+Slept On uses four YouCam endpoints. The analysis pipeline is asynchronous —
 submit a task, poll for the result.
 
 | Step | Endpoint |
@@ -135,7 +137,7 @@ Implementation notes that cost real debugging time to learn:
   returns `InvalidParameters`.
 - **Store `raw_score`, not `ui_score`.** YouCam's own documentation says
   `ui_score` is adjusted upward for "beauty psychology". A diary trying to detect
-  a 4-point change over six weeks needs the unmassaged number. Skin Diary keeps
+  a 4-point change over six weeks needs the unmassaged number. Slept On keeps
   both but analyses only `raw_score`.
 - **Polling must not be abandoned.** The docs warn a dropped task can expire and
   still be charged, so the client polls patiently with capped backoff.
@@ -170,7 +172,7 @@ very little redness). Every generated sentence is phrased in terms of the
 ### The lighting confound
 
 The biggest validity threat to any photo diary is that you changed lamps, not
-skin. Skin Diary measures **mean luma, contrast and warmth from the pixels in
+skin. Slept On measures **mean luma, contrast and warmth from the pixels in
 your browser before upload**, stores them next to the reading, and then:
 
 - warns when today's photo is >25 points off your usual brightness,
@@ -268,7 +270,7 @@ Next.js 16 (App Router) · TypeScript · Tailwind v4 · Vitest.
 
 No database, no login, no analytics, no cookies. Entries live in
 `localStorage`; photos are sent to YouCam for analysis and are never stored by
-Skin Diary. No charting library — the plots are hand-drawn SVG, because the
+Slept On. No charting library — the plots are hand-drawn SVG, because the
 factor-overlay form does not exist off the shelf and a library would have
 shipped 100KB to draw seven polylines.
 
@@ -299,7 +301,7 @@ buried in a README:
   makes null results weaker evidence than they look.
 - **The scores are a vendor's model, not ground truth** — estimates from one
   photograph, with their own error. A change of a point or two is inside it.
-- **Not medical or dermatological advice.** Skin Diary does not diagnose
+- **Not medical or dermatological advice.** Slept On does not diagnose
   anything and is not a substitute for a dermatologist.
 
 ---

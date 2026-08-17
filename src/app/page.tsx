@@ -60,16 +60,19 @@ export default function InsightsPage() {
             <> · {formatDay(quality.firstDate)}–{formatDay(quality.lastDate)}</>
           ) : null}
         </p>
-        <h1 className="mt-2 text-[34px] leading-[1.08] font-semibold tracking-tight sm:text-[44px]">
-          What actually
+        <h1 className="display mt-3 text-[40px] leading-[1.02] sm:text-[58px]">
+          Your skin isn&rsquo;t reacting
           <br />
-          changed your skin
+          to your serum.
         </h1>
-        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--ink-2)]">
-          Every skin app scores you once and tells you what your face looks
-          like today. This one photographs you repeatedly, logs what you did,
-          and reports which of those things actually track with your skin
-          metrics — with the sample size printed next to every claim.
+        <p className="display mt-1 text-[40px] leading-[1.02] text-[var(--lead)] sm:text-[58px]">
+          It&rsquo;s reacting to your sleep.
+        </p>
+        <p className="mt-6 max-w-[34rem] text-[16px] leading-[1.65] text-[var(--ink-2)]">
+          Most skin apps score your face once and hand you a number. This one
+          photographs you on a schedule, asks what you did that day, then works
+          out which of those things your skin was actually responding to. It
+          takes a few weeks. It prints how sure it is.
         </p>
       </header>
 
@@ -107,7 +110,8 @@ export default function InsightsPage() {
                     We tested{" "}
                     <span className="reading">{result.hypothesesTested}</span>{" "}
                     relationships and none of them held up. That is a real
-                    result, not a failure.
+                    answer. Most tools would have shown you the best-looking
+                    one anyway.
                   </>
                 )}
               </p>
@@ -316,7 +320,7 @@ function EmptyState({ count }: { count: number }) {
       <p className="eyebrow">Not enough data</p>
       <p className="mt-2 max-w-xl text-[15px] leading-relaxed">
         You have <span className="reading">{count}</span>{" "}
-        {count === 1 ? "reading" : "readings"}. Skin Diary will not report a
+        {count === 1 ? "reading" : "readings"}. Slept On will not report a
         correlation below{" "}
         <span className="reading">{ANALYSIS_CONFIG.minPairedObservations}</span>{" "}
         paired observations, because a correlation over four points is noise
@@ -366,7 +370,7 @@ function LimitsStrip() {
           <strong className="font-medium text-[var(--ink)]">
             This is not medical advice.
           </strong>{" "}
-          Skin Diary is not a diagnostic tool. See a dermatologist for
+          Slept On is not a diagnostic tool. See a dermatologist for
           anything that concerns you.
         </li>
       </ul>

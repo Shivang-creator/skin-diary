@@ -628,7 +628,7 @@ function assessQuality(entries: Entry[]): DataQuality {
     warnings.push(
       `Only ${n} ${
         n === 1 ? "entry" : "entries"
-      } so far. Skin Diary will not report any correlation until it has at least ${
+      } so far. Slept On will not report any correlation until it has at least ${
         ANALYSIS_CONFIG.minPairedObservations
       }.`,
     );

@@ -1,5 +1,5 @@
 /**
- * Skin Diary — domain model.
+ * Slept On — domain model.
  *
  * A diary entry pairs ONE YouCam AI Skin Analysis reading with the boring
  * lifestyle variables logged for the same day. Everything downstream
@@ -12,7 +12,7 @@
 /* ------------------------------------------------------------------ */
 
 /**
- * The seven SD-tier YouCam skin concerns Skin Diary tracks.
+ * The seven SD-tier YouCam skin concerns Slept On tracks.
  *
  * These are deliberately the concerns that can plausibly MOVE on a
  * day-to-day timescale in response to sleep, hydration, stress and
@@ -100,7 +100,7 @@ export const CONCERN_META: Record<Concern, ConcernMeta> = {
  * stated in their docs: "A higher score indicates healthier and more
  * aesthetically pleasing skin condition."
  *
- * Skin Diary keeps YouCam's raw orientation everywhere so the numbers on
+ * Slept On keeps YouCam's raw orientation everywhere so the numbers on
  * screen match the numbers the API returned, and phrases all prose in
  * terms of the score ("your redness score is higher") rather than the
  * concern ("you have more redness"), which would invert the meaning.
@@ -288,5 +288,5 @@ export function unitCostFor(concernCount: number): number {
   return NaN;
 }
 
-/** What one Skin Diary capture costs: 7 concerns = 12 units. */
+/** What one Slept On capture costs: 7 concerns = 12 units. */
 export const UNITS_PER_CAPTURE = unitCostFor(CONCERNS.length);

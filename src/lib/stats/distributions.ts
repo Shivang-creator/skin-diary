@@ -2,7 +2,7 @@
  * Statistical distribution functions.
  *
  * Hand-rolled rather than pulled from a library so the whole inference
- * path is auditable in-repo, and so every p-value Skin Diary prints can
+ * path is auditable in-repo, and so every p-value Slept On prints can
  * be traced to code that is unit-tested against known reference values
  * (scipy / standard statistical tables).
  *

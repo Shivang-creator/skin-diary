@@ -398,7 +398,7 @@ export interface ParsedAnalysis {
 /**
  * Turn YouCam's flat output array into per-concern scores.
  *
- * Skin Diary stores `raw_score`, not `ui_score`. YouCam is explicit that
+ * Slept On stores `raw_score`, not `ui_score`. YouCam is explicit that
  * ui_score is deliberately flattered — "adjusted to produce more
  * favourable results... beauty psychology". A diary whose job is to
  * detect a 4-point change over six weeks needs the unmassaged number.

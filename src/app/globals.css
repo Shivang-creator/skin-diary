@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 /*
- * Skin Diary — visual system.
+ * Slept On — visual system.
  *
- * Direction: a measurement instrument's readout, not a beauty app. The
- * audience is someone sceptical who has been sold to a lot, so the page
- * has to read as credible rather than aspirational.
+ * A notebook somebody actually kept, not a dashboard. Warm paper, warm
+ * near-black ink, and one ink-blue that only ever marks the thing that
+ * turned out to matter.
  *
- * The governing rule: COLOUR MEANS A MEASUREMENT CHANNEL. All interface
- * chrome is achromatic — ink, paper and rules. The only saturated colour
- * on any screen identifies a skin metric or a status. Nothing is coloured
- * to be pretty.
+ * The governing rule stays: COLOUR MEANS A MEASUREMENT CHANNEL. Chrome is
+ * paper and ink. The only saturated colour on a screen identifies a skin
+ * metric or a status. Nothing is coloured just to look nice.
  *
- * The series palette below is the validated categorical set (adjacent-pair
- * CVD ΔE >= 8, normal-vision ΔE >= 15, in both light and dark), with dark
- * steps chosen for the dark surface rather than flipped.
+ * The series palette is the validated categorical set (adjacent-pair CVD
+ * dE >= 8, normal-vision dE >= 15, light and dark), with dark steps chosen
+ * for the dark surface rather than flipped.
  */
 
 @theme {
-  --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-serif, Georgia, serif;
   --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
@@ -26,15 +26,16 @@
   color-scheme: light;
 
   /* Ground & ink */
-  --paper: #eef1f4;
-  --surface: #ffffff;
-  --surface-2: #f6f8fa;
-  --surface-3: #eaeef2;
-  --ink: #0f1518;
-  --ink-2: #48545c;
-  --ink-3: #78848b;
-  --rule: #dce3e8;
-  --rule-strong: #c2ccd4;
+  --paper: #f4f1ea;
+  --surface: #fffdf8;
+  --surface-2: #faf7f0;
+  --surface-3: #efeade;
+  --ink: #1c1a16;
+  --ink-2: #55504a;
+  --ink-3: #857f75;
+  --rule: #e2dccf;
+  --rule-strong: #cdc5b4;
+  --lead: #2f5fa8;
 
   /* Measurement channels — one per tracked concern */
   --series-1: #2a78d6;
@@ -59,15 +60,16 @@
   :root:not([data-theme="light"]) {
     color-scheme: dark;
 
-    --paper: #0b0f12;
-    --surface: #141a1e;
-    --surface-2: #1a2127;
-    --surface-3: #212a31;
-    --ink: #eef2f4;
-    --ink-2: #a7b3ba;
-    --ink-3: #78848b;
-    --rule: #232c33;
-    --rule-strong: #35424b;
+    --paper: #12100c;
+    --surface: #1a1713;
+    --surface-2: #221e19;
+    --surface-3: #2b2620;
+    --ink: #f2ece1;
+    --ink-2: #b3aa9c;
+    --ink-3: #857f75;
+    --rule: #2e2822;
+    --rule-strong: #443c33;
+    --lead: #7aa4e8;
 
     --series-1: #3987e5;
     --series-2: #d95926;
@@ -198,4 +200,12 @@ input[type="range"]::-moz-range-thumb {
 /* Tables of readings */
 .rule-top {
   border-top: 1px solid var(--rule);
+}
+
+
+/* The display face carries the voice; the sans carries the reading. */
+.display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.012em;
 }

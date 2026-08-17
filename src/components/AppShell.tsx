@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
+import { Wordmark } from "./Mark";
 
 const NAV = [
   { href: "/", label: "Insights" },
@@ -24,12 +25,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       <header className="sticky top-0 z-20 border-b bg-[var(--paper)]/85 backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center gap-6 px-4 py-3 sm:px-6">
-          <Link href="/" className="group flex items-baseline gap-2">
-            <span className="text-[15px] font-semibold tracking-tight">
-              Skin Diary
-            </span>
+          <Link href="/" className="group flex items-center gap-3">
+            <Wordmark size={22} />
             <span className="hidden text-[11px] text-[var(--ink-3)] sm:inline">
-              longitudinal skin tracking
+              a skin notebook that counts its own guesses
             </span>
           </Link>
 
@@ -63,12 +62,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
       <footer className="mx-auto max-w-6xl border-t px-4 py-8 text-[12px] leading-relaxed text-[var(--ink-3)] sm:px-6">
         <p className="max-w-2xl">
-          Skin Diary is a self-tracking tool, not a medical device. It does not
-          diagnose, treat or give dermatological advice. Skin metrics come from
-          the Perfect Corp YouCam AI Skin Analysis API; all correlation
-          analysis is computed locally and deterministically.{" "}
+          Slept On is a self-tracking notebook, not a medical device. It does not
+          diagnose anything, treat anything, or give dermatological advice. Skin
+          numbers come from the Perfect Corp YouCam AI Skin Analysis API. Every
+          correlation is worked out on your own device, by arithmetic you can
+          check.{" "}
           <Link href="/method" className="underline underline-offset-2">
-            Read the method and its limits
+            The method, and where it breaks
           </Link>
           .
         </p>

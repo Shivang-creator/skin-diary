@@ -1,7 +1,7 @@
 /**
  * The demo diary.
  *
- * A judge, or anyone else, opens Skin Diary with zero history. An empty
+ * A judge, or anyone else, opens Slept On with zero history. An empty
  * product cannot demonstrate a longitudinal product, so this module
  * synthesises a realistic six-week diary with KNOWN planted signals.
  *

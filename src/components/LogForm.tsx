@@ -131,7 +131,7 @@ export function LogForm({
         )}
         {value.productChanged && (
           <p className="mt-1.5 text-[11.5px] leading-relaxed text-[var(--ink-3)]">
-            Naming it lets Skin Diary compare your metrics before and after,
+            Naming it lets Slept On compare your metrics before and after,
             with a washout period.
           </p>
         )}

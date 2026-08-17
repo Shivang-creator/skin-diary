@@ -1,7 +1,7 @@
 /**
  * Correlation, group-difference and multiple-comparison machinery.
  *
- * Every number Skin Diary shows a user comes out of this file. It is
+ * Every number Slept On shows a user comes out of this file. It is
  * deliberately plain, deterministic and dependency-free: no model, no
  * LLM, no randomness. Given the same diary you get the same answer, and
  * anyone can read the arithmetic.
@@ -91,7 +91,7 @@ export function rank(xs: number[]): number[] {
 /**
  * Spearman's rank correlation.
  *
- * Skin Diary's default. Skin scores are bounded, noisy and occasionally
+ * Slept On's default. Skin scores are bounded, noisy and occasionally
  * spiky (one bad breakout day), and lifestyle logs are self-reported and
  * coarse. Rank correlation is robust to those outliers and picks up
  * monotone-but-not-linear relationships, which is what "more sleep tends
@@ -233,7 +233,7 @@ export function welchTTest(a: number[], b: number[]): WelchResult {
 /**
  * Benjamini-Hochberg false discovery rate correction.
  *
- * This matters more here than in most apps. Skin Diary tests every
+ * This matters more here than in most apps. Slept On tests every
  * factor against every metric at several time lags — dozens of
  * hypotheses. At p < 0.05, roughly one in twenty of those would look
  * "significant" from pure noise. Reporting raw p-values would mean
@@ -279,7 +279,7 @@ export type Confidence =
  * The honesty gate.
  *
  * A correlation over four data points is noise. This function is the
- * single place that decides how loudly Skin Diary is allowed to speak,
+ * single place that decides how loudly Slept On is allowed to speak,
  * and it refuses to say anything at all below `minN` observations no
  * matter how large the coefficient looks.
  */

@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { Inter_Tight, IBM_Plex_Mono } from "next/font/google";
+import { Instrument_Serif, Inter_Tight, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { StoreProvider } from "@/lib/store";
 import { AppShell } from "@/components/AppShell";
 
 /**
- * Two faces, two jobs.
+ * Three faces, three jobs.
  *
- * Inter Tight sets the prose — narrow, technical, unfussy. IBM Plex Mono
- * sets every number, date, coefficient and sample size, because in a
- * measurement log a monospaced figure signals "this is a reading" and
- * keeps columns of them aligned.
+ * Instrument Serif says the sentences that are meant to sound like a person
+ * wrote them. Inter Tight carries the reading text. IBM Plex Mono sets every
+ * number, date, coefficient and sample size, because a monospaced figure
+ * reads as a measurement and keeps columns of them aligned.
  */
-const interTight = Inter_Tight({
-  variable: "--font-inter-tight",
+const display = Instrument_Serif({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const body = Inter_Tight({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
@@ -26,13 +33,13 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Skin Diary — find out what actually changed your skin",
+  title: "Slept On — your skin is reacting to your sleep, not your serum",
   description:
-    "A skin journal built on the YouCam Skin Analysis API. Photograph your face on a schedule, log the boring variables, and find out which ones actually track with your skin metrics over time — with the sample size printed next to every claim.",
+    "A skin notebook built on the YouCam Skin Analysis API. Photograph your face on a schedule, log the boring things next to it, and find out which ones actually track with your skin over weeks. Every claim carries its sample size, and every p-value is corrected for the 147 tests it took to find it.",
   openGraph: {
-    title: "Skin Diary",
+    title: "Slept On",
     description:
-      "Every skin app scores you once. Skin Diary tells you what changed your skin — with the sample size next to every claim.",
+      "Your skin isn't reacting to your serum. It's reacting to your sleep. 147 tests run, every one of them counted.",
     type: "website",
   },
 };
@@ -45,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${interTight.variable} ${plexMono.variable} h-full`}
+      className={`${display.variable} ${body.variable} ${plexMono.variable} h-full`}
     >
       <body className="min-h-full font-sans">
         <StoreProvider>

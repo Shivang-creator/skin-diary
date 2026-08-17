@@ -15,9 +15,9 @@ import {
 } from "@/lib/youcam/fixture";
 
 export const metadata: Metadata = {
-  title: "Method & limits — Skin Diary",
+  title: "Method & limits — Slept On",
   description:
-    "Exactly how Skin Diary computes its findings, what it costs to run, and the things it cannot tell you.",
+    "Exactly how Slept On computes its findings, what it costs to run, and the things it cannot tell you.",
 };
 
 export default function MethodPage() {
@@ -71,7 +71,7 @@ export default function MethodPage() {
             </ol>
             <p className="mt-4">
               The photo is resized in your browser before upload and is never
-              stored by Skin Diary. Scores are kept as YouCam&rsquo;s{" "}
+              stored by Slept On. Scores are kept as YouCam&rsquo;s{" "}
               <code className="reading">raw_score</code>, not{" "}
               <code className="reading">ui_score</code> — their documentation
               is explicit that ui_score is adjusted upward for
@@ -83,7 +83,7 @@ export default function MethodPage() {
           {/* ---------------- Metrics ---------------- */}
           <Section number="02" title="Which seven metrics, and why">
             <p>
-              YouCam exposes sixteen SD skin concerns. Skin Diary tracks seven.
+              YouCam exposes sixteen SD skin concerns. Slept On tracks seven.
               The other nine — wrinkles, firmness, age spots, eyelid droop, eye
               bags, tear trough, skin type — are structural. They do not
               meaningfully move in six weeks, so tracking them daily would add
@@ -110,7 +110,7 @@ export default function MethodPage() {
             </ul>
             <p className="mt-4">
               All seven are scored 1–100 where <strong>higher is better</strong>
-              . A redness score of 90 means very little redness. Skin Diary
+              . A redness score of 90 means very little redness. Slept On
               phrases every sentence in terms of the score rather than the
               concern, so the direction never inverts on you.
             </p>
@@ -158,7 +158,7 @@ export default function MethodPage() {
               <Term term="Partial correlation on photo brightness">
                 Every surviving correlation is re-run holding your photo&rsquo;s
                 measured brightness constant. If the relationship collapses,
-                Skin Diary says so — it was your lighting, not your skin.
+                Slept On says so — it was your lighting, not your skin.
               </Term>
               <Term term="Minimum sample size">
                 Nothing is reported below{" "}
@@ -189,7 +189,7 @@ export default function MethodPage() {
           <Section number="04" title="What this cannot tell you">
             <div className="space-y-4">
               <Limit title="Correlation is not causation, and never becomes it">
-                Skin Diary can tell you that your redness scores run higher
+                Slept On can tell you that your redness scores run higher
                 after long sleeps. It cannot tell you that sleeping more will
                 improve your skin. The nights you sleep well are probably also
                 the nights you drank less, ate earlier and were less stressed —
@@ -199,7 +199,7 @@ export default function MethodPage() {
               <Limit title="The camera is a confound">
                 Lighting, distance, lens, time of day and whether you just
                 washed your face all move these scores, sometimes more than a
-                genuinely good week does. Skin Diary measures your photo&rsquo;s
+                genuinely good week does. Slept On measures your photo&rsquo;s
                 brightness and controls for it, which helps, but it cannot
                 control for what it cannot see.
               </Limit>
@@ -216,7 +216,7 @@ export default function MethodPage() {
                 weaker evidence of absence than it looks.
               </Limit>
               <Limit title="It is not medical or dermatological advice">
-                Skin Diary is a self-tracking tool. It does not diagnose
+                Slept On is a self-tracking tool. It does not diagnose
                 anything, it is not a substitute for a dermatologist, and it
                 should not be used to decide whether a skin condition needs
                 treatment. If something on your skin worries you, see a doctor.
@@ -236,7 +236,7 @@ export default function MethodPage() {
           <div className="border bg-[var(--surface)] p-4">
             <p className="eyebrow">Unit economics</p>
             <p className="mt-2 text-[13px] leading-relaxed text-[var(--ink-2)]">
-              YouCam prices skin analysis in tiers by concern count. Skin Diary
+              YouCam prices skin analysis in tiers by concern count. Slept On
               asks for {CONCERNS.length}, which is the top of the second tier —
               the most information per unit spent.
             </p>
@@ -266,7 +266,7 @@ export default function MethodPage() {
           <div className="border bg-[var(--surface)] p-4">
             <p className="eyebrow">Fixture mode</p>
             <p className="mt-2 text-[13px] leading-relaxed text-[var(--ink-2)]">
-              With no API key configured, Skin Diary runs entirely on a stored
+              With no API key configured, Slept On runs entirely on a stored
               response in the exact shape of the real endpoint, parsed by the
               exact same code. Captures are labelled{" "}
               <span className="reading">SIMULATED</span> everywhere they appear
@@ -306,7 +306,7 @@ export default function MethodPage() {
             <p className="mt-2 text-[13px] leading-relaxed text-[var(--ink-2)]">
               No account, no server, no database. Entries live in this
               browser&rsquo;s localStorage and nowhere else. Photos are sent to
-              YouCam for analysis and are never stored by Skin Diary. Clearing
+              YouCam for analysis and are never stored by Slept On. Clearing
               your browser data deletes your diary permanently.
             </p>
             <Link

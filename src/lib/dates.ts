@@ -1,7 +1,7 @@
 /**
  * Calendar-day helpers.
  *
- * Everything in Skin Diary keys off a local YYYY-MM-DD string rather than
+ * Everything in Slept On keys off a local YYYY-MM-DD string rather than
  * a timestamp. A diary is a thing you fill in "today", and timezone
  * arithmetic on Date objects is a reliable source of off-by-one-day bugs
  * that would silently misalign a lag analysis.
