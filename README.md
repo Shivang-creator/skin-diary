@@ -1,12 +1,28 @@
 # Skin Diary
 
-**Every skin app scores you once. This one tells you what changed your skin.**
+**Your skin isn't reacting to your serum. It's reacting to your sleep.**
 
 Skin Diary is a longitudinal skin journal built on the Perfect Corp **YouCam AI
-Skin Analysis API**. You photograph your face on a schedule, log the boring
-variables next to it — sleep, water, stress, alcohol, a product change — and
-after a couple of weeks it reports which of those factors actually track with
-your skin metrics over time.
+Skin Analysis API**. You photograph your face on a schedule and log the boring
+variables next to it — sleep, water, stress, alcohol, a product change. After a
+couple of weeks it reports which of those factors actually track with your skin
+metrics over time.
+
+Most skin tools ask *"is this product working?"* — a question about one variable.
+Skin Diary asks the one people actually want answered: **what in my life is
+showing up on my face?**
+
+## The number nobody else prints
+
+Searching 7 factors × 7 metrics × 3 time lags is **147 hypotheses**. At p<0.05,
+about **7 of them look "significant" from pure noise alone**.
+
+So every p-value here is **Benjamini–Hochberg corrected** across the family of
+tests actually run — and the family size is shown to you on screen. A tool that
+runs 147 tests and reports the winners without saying how many it ran is not
+finding patterns, it is manufacturing them.
+
+That correction is the product. Everything else is a diary.
 
 The value is in the **series and the correlation**, not in any single call. The
 API is called repeatedly, over weeks, and the product is the analysis of what
