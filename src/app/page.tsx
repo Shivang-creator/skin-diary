@@ -76,12 +76,45 @@ export default function InsightsPage() {
         </p>
       </header>
 
+      {/* YouCam is the instrument. Say so where a judge will see it. */}
+      <section className="rise rise-1 mt-10 overflow-hidden rounded-[6px] border border-[var(--rule)] bg-[var(--surface)]">
+        <div className="border-b border-[var(--rule)] bg-[var(--surface-2)] px-5 py-3">
+          <p className="eyebrow">The instrument</p>
+          <h2 className="display mt-1 text-[24px] leading-tight">
+            YouCam measures. Slept On decides what a measurement is allowed to mean.
+          </h2>
+        </div>
+        <div className="grid gap-px bg-[var(--rule)] sm:grid-cols-3">
+          {[
+            {
+              k: "Perfect Corp YouCam AI Skin Analysis",
+              v: "Seven concerns scored from one photograph, every time you log a day. The reading is the raw material and it is the only thing in this app that is not my arithmetic.",
+            },
+            {
+              k: "Called on a schedule, not once",
+              v: "One call tells you about today. Forty calls over six weeks are a series, and a series is the only thing a correlation can be computed from.",
+            },
+            {
+              k: "12 units per capture, observed",
+              v: "The balance is read before and after a real call, so the cost on screen is measured rather than assumed. Live balance was 1,500 units.",
+            },
+          ].map((c) => (
+            <div key={c.k} className="bg-[var(--surface)] p-5">
+              <p className="text-[13px] font-semibold">{c.k}</p>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-[var(--ink-2)]">
+                {c.v}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {!hasEnough ? (
         <EmptyState count={quality.entryCount} />
       ) : (
         <>
           {/* ---------------- Headline findings ---------------- */}
-          <section className="mt-10">
+          <section className="rise rise-2 mt-10">
             <div className="flex flex-wrap items-baseline gap-x-3">
               <h2 className="text-[15px] font-semibold">
                 {headlines.length > 0

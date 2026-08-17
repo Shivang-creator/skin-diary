@@ -209,3 +209,67 @@ input[type="range"]::-moz-range-thumb {
   font-weight: 400;
   letter-spacing: -0.012em;
 }
+
+/* ── Motion ───────────────────────────────────────────────────────────────
+   Restrained on purpose. This app's whole argument is that it does not
+   oversell, so nothing bounces and nothing sparkles. Things arrive. */
+
+@keyframes veil-out {
+  to { opacity: 0; visibility: hidden; }
+}
+@keyframes mark-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes draw-stem {
+  from { stroke-dashoffset: 14; }
+  to   { stroke-dashoffset: 0; }
+}
+
+.intro-veil { animation: veil-out 0.5s ease 1.6s forwards; }
+.intro-mark { animation: mark-in 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.intro-word   { opacity: 0; animation: word-in 0.5s ease 0.42s forwards; }
+.intro-word-2 { opacity: 0; animation: word-in 0.5s ease 0.66s forwards; }
+
+/* Sections arrive as you meet them, staggered by depth on the page. */
+.rise   { animation: rise-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.rise-1 { animation-delay: 0.06s; }
+.rise-2 { animation-delay: 0.14s; }
+.rise-3 { animation-delay: 0.22s; }
+
+/* The lead dot's stem draws itself in the header mark. */
+.mark-stem {
+  stroke-dasharray: 14;
+  animation: draw-stem 0.8s ease 0.3s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-veil, .intro-mark, .intro-word, .intro-word-2,
+  .rise, .mark-stem {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/* A soft warm bloom behind the page — the only decorative colour anywhere,
+   and it never sits on top of a reading. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vmax auto auto -20vmax;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--lead) 12%, transparent), transparent 62%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: -1;
+}

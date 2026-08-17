@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { Wordmark } from "./Mark";
+import { Intro } from "./Intro";
 
 const NAV = [
   { href: "/", label: "Insights" },
@@ -17,6 +18,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative min-h-full">
+      <Intro />
       {/* The chart-paper ground: one ruled sheet behind the whole app. */}
       <div
         aria-hidden

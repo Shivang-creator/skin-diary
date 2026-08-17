@@ -13,8 +13,8 @@
 
 import type { Entry } from "./domain";
 
-const ENTRIES_KEY = "skin-diary:entries:v1";
-const MODE_KEY = "skin-diary:mode:v1";
+const ENTRIES_KEY = "slept-on:entries:v1";
+const MODE_KEY = "slept-on:mode:v1";
 
 export type DataMode = "demo" | "mine";
 

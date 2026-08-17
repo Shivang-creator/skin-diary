@@ -52,6 +52,7 @@ export function Mark({ size = 28 }: { size?: number }) {
         strokeOpacity={0.45}
         strokeWidth="1.2"
         strokeLinecap="round"
+        className="mark-stem"
       />
     </svg>
   );

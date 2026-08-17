@@ -457,7 +457,7 @@ export async function analyseImage(
   apiKey: string,
   bytes: Uint8Array,
   contentType: "image/jpeg" | "image/png",
-  fileName = "skin-diary-capture.jpg",
+  fileName = "slept-on-capture.jpg",
   dstActions: readonly string[] = CONCERNS,
 ): Promise<AnalyseImageResult> {
   const started = Date.now();

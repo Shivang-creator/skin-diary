@@ -87,7 +87,7 @@ export async function POST(req: Request) {
       apiKey,
       bytes,
       contentType,
-      `skin-diary-${Date.now()}.${contentType === "image/png" ? "png" : "jpg"}`,
+      `slept-on-${Date.now()}.${contentType === "image/png" ? "png" : "jpg"}`,
       CONCERNS,
     );
 

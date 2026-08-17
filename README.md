@@ -30,7 +30,7 @@ The value is in the **series and the correlation**, not in any single call. The
 API is called repeatedly, over weeks, and the product is the analysis of what
 comes back.
 
-**Live:** https://skin-diary-steel.vercel.app — no account, no setup. It opens
+**Live:** https://slept-on.vercel.app — no account, no setup. It opens
 on a pre-populated six-week demo diary so the payoff screen is explorable
 immediately.
 
